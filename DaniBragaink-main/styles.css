@@ -1,0 +1,71 @@
+:root { --pink:#efbfd1; --paper:#fffdfb; --ink:#080808; --line:4px; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:"Space Mono", monospace; -webkit-font-smoothing:antialiased; }
+a { color:inherit; }
+img { display:block; max-width:100%; }
+:focus-visible { outline:4px solid #d75f91; outline-offset:4px; }
+.page-shell { width:min(1400px, calc(100% - 24px)); margin:12px auto; border:7px solid var(--pink); overflow:hidden; }
+.topbar { position:relative; z-index:3; min-height:84px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:24px; padding:6px 28px; background:var(--pink); }
+.mini-logo { position:relative; width:112px; height:72px; overflow:visible; text-decoration:none; }
+.mini-logo img { position:absolute; top:-74px; left:-28px; width:165px; max-width:none; height:auto; }
+.topbar__social,nav a { font-size:.88rem; font-weight:700; text-decoration:none; }
+nav { display:flex; gap:38px; }
+nav a { text-transform:uppercase; }
+nav a:hover,.topbar__social:hover { text-decoration:underline; text-decoration-thickness:3px; text-underline-offset:5px; }
+.topbar__social { justify-self:end; font-size:.78rem; }
+.hero { min-height:650px; display:grid; grid-template-columns:.9fr 1.1fr; gap:18px; padding:22px; border-bottom:var(--line) solid var(--pink); }
+.hero__intro,.hero__brand { position:relative; border:var(--line) solid var(--pink); }
+.hero__intro { display:flex; flex-direction:column; justify-content:center; padding:clamp(28px,6vw,75px); }
+.scribble { margin:0 0 12px; font:700 clamp(1.3rem,3vw,2rem)/1 "Kalam", cursive; transform:rotate(-2deg); }
+h1,h2 { margin:0; font-family:"Archivo Black", sans-serif; line-height:.86; letter-spacing:-.065em; }
+h1 { font-size:clamp(3.15rem,7.4vw,7.4rem); }
+h1 em,h2 em { font:700 .75em/1 "Kalam", cursive; letter-spacing:-.04em; text-transform:none; }
+.text-link { width:max-content; margin-top:36px; font-size:.78rem; font-weight:700; text-transform:uppercase; text-underline-offset:6px; }
+.hero__brand { display:grid; place-content:center; min-height:520px; padding:50px 20px; overflow:hidden; background:var(--pink); text-align:center; }
+.hero__logo { width:min(92%, 760px); height:auto; object-fit:contain; transform:scale(2.15); }
+.hero__brand p { margin:14px 0 0; font-size:.65rem; font-weight:700; text-transform:uppercase; }
+.spark { position:absolute; font-size:clamp(2rem,4vw,4rem); }.spark--one{top:10%;left:8%;}.spark--two{right:8%;bottom:9%;}
+.ticker { overflow:hidden; padding:14px 0; border-bottom:var(--line) solid var(--pink); background:var(--ink); color:var(--paper); font-size:.74rem; font-weight:700; white-space:nowrap; }
+.ticker__track { width:max-content; display:flex; animation:ticker 28s linear infinite; }
+.ticker__track span { flex:none; padding-right:2rem; }
+@keyframes ticker { to { transform:translateX(-50%); } }
+.works { display:grid; grid-template-columns:1fr; align-items:start; gap:24px; padding:clamp(18px,3vw,42px); border-bottom:var(--line) solid var(--pink); }
+.section-title { position:static; min-height:235px; display:grid; grid-template-columns:240px minmax(0,1fr); grid-template-rows:auto auto auto; grid-template-areas:"dani eyebrow" "dani title" "dani count"; align-items:center; column-gap:24px; overflow:hidden; }
+.section-title p { grid-area:eyebrow; align-self:end; margin:0 0 8px; font:700 1.4rem/1 "Kalam",cursive; }
+.section-title h2{grid-area:title; align-self:center; font-size:clamp(3.6rem,7vw,7rem);}
+.section-title span{grid-area:count; align-self:start; display:block; margin-top:14px; font-size:.7rem;}
+.works__dani { grid-area:dani; align-self:center; width:240px; max-width:none; height:auto; margin:-48px 0 -50px; }
+.gallery { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+.gallery__item { position:relative; aspect-ratio:4/3; overflow:hidden; border:var(--line) solid var(--pink); background:var(--pink); }
+.gallery__item--tall { grid-row:span 2; aspect-ratio:auto; }
+.gallery img { width:100%; height:100%; object-fit:cover; filter:grayscale(1); transition:transform .45s ease,filter .3s ease; }
+.gallery__item:hover img { transform:scale(1.035); filter:grayscale(0); }
+.gallery__item::after { position:absolute; right:10px; bottom:10px; content:"↗"; display:grid; place-items:center; width:35px; height:35px; border:2px solid var(--ink); border-radius:50%; background:var(--pink); font-weight:700; }
+.about { display:grid; grid-template-columns:minmax(220px,.72fr) minmax(430px,1.45fr) minmax(170px,.55fr); align-items:center; gap:clamp(22px,3vw,58px); min-height:650px; padding:clamp(26px,4.5vw,72px) clamp(22px,3vw,52px) 0; border-bottom:var(--line) solid var(--pink); }
+.about__figure { height:100%; display:flex; align-items:flex-end; justify-content:center; overflow:hidden; }
+.about__figure img { width:min(145%,500px); max-width:none; max-height:620px; object-fit:contain; object-position:bottom; }
+.about h2 { font-size:clamp(3.5rem,6.7vw,7rem); }
+.about h2 em { font-size:.62em; white-space:nowrap; }
+.about__copy { padding-bottom:36px; }
+.about__copy>p:last-child{max-width:620px;margin:28px 0 0;line-height:1.65;font-size:.76rem;}
+blockquote { margin:0 0 56px; font:700 clamp(1.4rem,2.2vw,2.25rem)/1.08 "Kalam",cursive; transform:rotate(2deg); }
+.contact { min-height:520px; display:grid; grid-template-columns:57% 18% 25%; align-items:center; gap:0; padding:clamp(24px,3vw,42px); overflow:hidden; background:var(--pink); }
+.contact h2{font-size:clamp(5rem,12.8vw,11rem);}
+.contact__headline { position:relative; z-index:1; }
+.contact__figure { position:relative; z-index:2; height:400px; overflow:visible; align-self:center; }
+.contact__figure img { position:absolute; top:-66px; left:50%; width:auto; max-width:none; height:555px; transform:translateX(-50%); }
+.contact__details { position:relative; z-index:3; justify-self:start; align-self:center; }
+.contact__details>p{max-width:300px;line-height:1.7;font-size:.72rem;}
+.contact .actions { flex-direction:column; align-items:flex-start; }
+.contact .button { width:190px; min-width:190px; }
+.actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }.button{display:inline-flex;justify-content:center;min-width:190px;padding:17px 22px;border:3px solid var(--ink);font-size:.76rem;font-weight:700;text-decoration:none;box-shadow:5px 5px 0 var(--ink);transition:transform .18s,box-shadow .18s}.button:hover{transform:translate(5px,5px);box-shadow:none}.button--dark{background:var(--ink);color:var(--paper)}.button--light{background:var(--paper)}
+footer { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:24px 30px; font-size:.65rem; font-weight:700; }footer a{text-underline-offset:4px}
+.whatsapp-float { position:fixed; z-index:20; right:26px; bottom:24px; display:flex; align-items:center; gap:10px; padding:10px 16px 10px 10px; border:3px solid var(--ink); border-radius:999px; background:var(--pink); color:var(--ink); box-shadow:5px 5px 0 var(--ink); font-size:.72rem; font-weight:700; text-decoration:none; transition:transform .18s,box-shadow .18s; }
+.whatsapp-float:hover { transform:translate(5px,5px); box-shadow:none; }
+.whatsapp-float__icon { width:30px; height:30px; display:grid; place-items:center; border-radius:50%; background:var(--ink); color:var(--paper); font-size:1rem; }
+@media (min-width:821px) and (max-width:1050px){.contact{grid-template-columns:56% 19% 25%;padding:28px}.contact h2{font-size:7rem}.contact__figure{height:340px}.contact__figure img{top:-52px;height:465px}.contact__details>p{font-size:.68rem}}
+@media (max-width:820px){.page-shell{width:calc(100% - 12px);margin:6px auto;border-width:5px}.topbar{grid-template-columns:1fr auto;padding:12px 16px}.topbar nav{display:none}.hero{grid-template-columns:1fr;padding:10px;min-height:auto}.hero__intro{min-height:560px;padding:35px 24px}.hero__brand{min-height:420px}.works{grid-template-columns:1fr;padding:38px 16px}.section-title{position:static}.section-title h2 br{display:none}.about{grid-template-columns:1fr;padding:42px 22px 0;text-align:center}.about__figure{order:2;height:440px}.about__figure img{height:108%;width:auto;max-width:none}.about__copy{order:1;padding:0}.about__copy>p:last-child{margin-inline:auto}.about blockquote{order:3;max-width:280px;margin:24px auto 48px}.contact{grid-template-columns:1fr;padding:52px 24px 0;text-align:center}.contact h2{font-size:clamp(4rem,18vw,7rem)}.contact__figure{height:380px;order:2;transform:none}.contact__figure img{position:static;width:auto;height:145%;max-width:none;transform:none}.contact__details{order:3;justify-self:stretch;padding-bottom:52px}.contact__details>p{margin-inline:auto}.contact .actions{align-items:stretch}.contact .button{width:100%;min-width:0}.actions{flex-direction:column}.button{width:100%}footer{flex-direction:column;align-items:center;text-align:center}}
+@media (max-width:820px){.section-title{min-height:190px;grid-template-columns:clamp(105px,24vw,160px) minmax(0,1fr);column-gap:10px}.section-title h2{font-size:clamp(2rem,8vw,3.6rem)}.section-title h2 br{display:block}.section-title p{font-size:1rem}.works__dani{width:180px;margin:-38px 0 -42px -20px}}
+@media (max-width:520px){.mini-logo{width:76px;height:66px}.mini-logo img{top:-61px;left:-27px;width:145px}.topbar__social{font-size:0}.topbar__social::after{content:"Instagram ↗";font-size:.65rem}.hero__intro{min-height:480px}.gallery{grid-template-columns:1fr}.gallery__item--tall{grid-row:auto;aspect-ratio:1}.hero__logo{width:100%;transform:scale(2.2)}.contact h2{font-size:4.2rem}.about h2{font-size:2.55rem}.whatsapp-float{right:14px;bottom:14px;padding:8px}.whatsapp-float>span:last-child{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ticker div{animation:none}*{transition:none!important}}
