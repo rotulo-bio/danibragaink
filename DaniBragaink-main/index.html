@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-PT">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,9 +20,15 @@
         <nav aria-label="Navegação principal">
           <a href="#trabalhos">Trabalhos</a>
           <a href="#sobre">Sobre</a>
-          <a href="#contacto">Contacto</a>
+          <a href="#contacto">Contato</a>
         </nav>
-        <a class="topbar__social js-instagram" href="https://instagram.com/_braga.ink" target="_blank" rel="noopener noreferrer">@_braga.ink ↗</a>
+        <div class="topbar__actions">
+          <button class="theme-toggle" type="button" aria-label="Alternar para modo noturno" aria-pressed="false">
+            <span class="theme-toggle__icon" aria-hidden="true">☾</span>
+            <span class="theme-toggle__label">Noturno</span>
+          </button>
+          <a class="topbar__social js-instagram" href="https://instagram.com/_braga.ink" target="_blank" rel="noopener noreferrer">@_braga.ink ↗</a>
+        </div>
       </header>
 
       <main id="inicio">
@@ -30,7 +36,7 @@
           <div class="hero__intro">
             <p class="scribble">Tatuadora no Porto</p>
             <h1>ARTE<br>NA PELE,<br><em>histórias</em><br>PARA SEMPRE.</h1>
-            <a class="text-link" href="#trabalhos">Ver os meus trabalhos ↓</a>
+            <a class="text-link" href="#trabalhos">Ver meus trabalhos ↓</a>
           </div>
           <div class="hero__brand" aria-label="Dani Braga Ink">
             <div class="spark spark--one">✦</div>
@@ -73,19 +79,27 @@
           <div class="about__copy">
             <p class="scribble">Olá, sou a Dani!</p>
             <h2>CADA<br>TATUAGEM<br>COMEÇA<br>COM<br>UMA <em>história.</em></h2>
-            <p>Trazes a ideia, a memória e o corpo. Eu ajudo a transformar tudo isso numa peça única, desenhada contigo e para ti.</p>
+            <p>Você traz a ideia, a memória e o corpo. Eu ajudo a transformar tudo isso em uma peça única, desenhada com você e para você.</p>
           </div>
           <blockquote>“A arte existe porque a vida não basta.”</blockquote>
         </section>
 
+        <section class="cta-banner" aria-label="Chamada para contacto">
+          <div>
+            <p class="scribble">Bora fazer sua Tattoo?</p>
+            <h2>QUER<br>UMA TATUAGEM<br>COM PERSONALIDADE?</h2>
+          </div>
+          <a class="button button--dark js-whatsapp" href="#" target="_blank" rel="noopener noreferrer">PEDIR ORÇAMENTO ↗</a>
+        </section>
+
         <section class="contact" id="contacto">
           <div class="contact__headline">
-            <p class="scribble">Tens uma ideia?</p>
+            <p class="scribble">Tem uma ideia?</p>
             <h2>FALA<br>COMIGO</h2>
           </div>
           <div class="contact__figure"><img src="assets/dani2.png" alt="Ilustração de Dani Braga sentada à mesa" loading="lazy"></div>
           <div class="contact__details">
-            <p>Conta-me a tua ideia, o tamanho e a zona do corpo. Respondo com toda a informação para avançarmos.</p>
+            <p>Me conte sua ideia, o tamanho e a região do corpo. Respondo com todas as informações para avançarmos.</p>
             <div class="actions">
               <a class="button button--dark js-whatsapp" href="#" target="_blank" rel="noopener noreferrer">WHATSAPP ↗</a>
               <a class="button button--light js-instagram" href="https://instagram.com/_braga.ink" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a>
@@ -103,6 +117,17 @@
         <span class="whatsapp-float__icon" aria-hidden="true">✆</span>
         <span>WHATSAPP</span>
       </a>
+    </div>
+
+    <div class="gallery-modal" aria-hidden="true">
+      <button class="gallery-modal__close" type="button" aria-label="Fechar imagem">✕</button>
+      <div class="gallery-modal__content">
+        <img src="" alt="" class="gallery-modal__image">
+        <div class="gallery-modal__caption">
+          <p class="gallery-modal__tag">Dani Braga Ink</p>
+          <p class="gallery-modal__label">Arte personalizada</p>
+        </div>
+      </div>
     </div>
   </body>
 </html>
