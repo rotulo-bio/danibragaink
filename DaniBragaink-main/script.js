@@ -4,34 +4,22 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
 document.querySelectorAll(".js-whatsapp").forEach((link) => { link.href = whatsappUrl; link.target = "_blank"; link.rel = "noopener noreferrer"; });
 document.querySelector("#year").textContent = new Date().getFullYear();
 
-const items = [...document.querySelectorAll(".gallery__item")];
-const lightbox = document.querySelector(".lightbox");
-const lightboxImage = document.querySelector(".lightbox__image");
-const caption = document.querySelector(".lightbox__caption");
-const closeButton = document.querySelector(".lightbox__close");
-const previousButton = document.querySelector(".lightbox__previous");
-const nextButton = document.querySelector(".lightbox__next");
-let currentIndex = 0;
-let opener = null;
+const carousel = document.querySelector(".carousel");
+const cards = [...document.querySelectorAll(".work-card")];
+const step = () => cards[0].getBoundingClientRect().width + 20;
+document.querySelector(".carousel-prev").addEventListener("click", () => carousel.scrollBy({ left: -step(), behavior: "smooth" }));
+document.querySelector(".carousel-next").addEventListener("click", () => carousel.scrollBy({ left: step(), behavior: "smooth" }));
 
-const showImage = (index) => {
-  currentIndex = (index + items.length) % items.length;
-  const source = items[currentIndex].querySelector("img");
-  lightboxImage.src = source.currentSrc || source.src;
-  lightboxImage.alt = source.alt;
-  caption.textContent = `${source.alt}. Imagem ${currentIndex + 1} de ${items.length}.`;
-};
-const openLightbox = (index, button) => { opener = button; showImage(index); lightbox.showModal(); closeButton.focus(); };
-const closeLightbox = () => { if (lightbox.open) lightbox.close(); };
-items.forEach((item, index) => item.addEventListener("click", () => openLightbox(index, item)));
-closeButton.addEventListener("click", closeLightbox);
-previousButton.addEventListener("click", () => showImage(currentIndex - 1));
-nextButton.addEventListener("click", () => showImage(currentIndex + 1));
-lightbox.addEventListener("click", (event) => { if (event.target === lightbox) closeLightbox(); });
-lightbox.addEventListener("close", () => { lightboxImage.src = ""; opener?.focus(); });
-document.addEventListener("keydown", (event) => {
-  if (!lightbox.open) return;
-  if (event.key === "Escape") closeLightbox();
-  if (event.key === "ArrowLeft") showImage(currentIndex - 1);
-  if (event.key === "ArrowRight") showImage(currentIndex + 1);
-});
+const dialog = document.querySelector(".lightbox");
+const dialogImage = dialog.querySelector("img");
+const dialogCaption = dialog.querySelector("p");
+let current = 0;
+let opener = null;
+const show = (index) => { current = (index + cards.length) % cards.length; const image = cards[current].querySelector("img"); dialogImage.src = image.currentSrc || image.src; dialogImage.alt = image.alt; dialogCaption.textContent = `${image.alt}. Imagem ${current + 1} de ${cards.length}.`; };
+cards.forEach((card,index) => card.addEventListener("click", () => { opener = card; show(index); dialog.showModal(); dialog.querySelector(".lightbox-close").focus(); }));
+dialog.querySelector(".lightbox-close").addEventListener("click", () => dialog.close());
+dialog.querySelector(".lightbox-prev").addEventListener("click", () => show(current - 1));
+dialog.querySelector(".lightbox-next").addEventListener("click", () => show(current + 1));
+dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
+dialog.addEventListener("close", () => { dialogImage.src = ""; opener?.focus(); });
+document.addEventListener("keydown", (event) => { if (!dialog.open) return; if (event.key === "ArrowLeft") show(current - 1); if (event.key === "ArrowRight") show(current + 1); });
