@@ -6,7 +6,7 @@ document.querySelector("#year").textContent = new Date().getFullYear();
 
 const carousel = document.querySelector(".carousel");
 const cards = [...document.querySelectorAll(".work-card")];
-const step = () => cards[0].getBoundingClientRect().width + 20;
+const step = () => cards[0].getBoundingClientRect().width - (window.innerWidth <= 520 ? 30 : 58);
 document.querySelector(".carousel-prev").addEventListener("click", () => carousel.scrollBy({ left: -step(), behavior: "smooth" }));
 document.querySelector(".carousel-next").addEventListener("click", () => carousel.scrollBy({ left: step(), behavior: "smooth" }));
 
